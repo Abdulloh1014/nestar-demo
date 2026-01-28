@@ -13,8 +13,12 @@
     "jsx": "preserve",
     "incremental": true,
     "paths": {
-      "@/*": ["./*"]
-    }
+  "@/*": ["./*"],
+  "@libs/*": ["libs/*"]
+}
+    // "paths": {
+    //   "@/*": ["./*"]
+    // }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
   "exclude": ["node_modules"]
