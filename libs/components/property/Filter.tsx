@@ -7,6 +7,8 @@ import {
   OutlinedInput,
   Tooltip,
   IconButton,
+  FormControl,
+  InputLabel,
 } from "@mui/material";
 import RefreshIcon from "@mui/icons-material/Refresh";
 
@@ -127,28 +129,39 @@ const Filter = () => {
         ))}
       </Stack>
 
-      {/* Square meter */}
-      <Stack className="find-your-home" mb="30px">
-        <Typography className="title-sub">Square meter</Typography>
-        <Stack direction="row" spacing={1} alignItems="center">
-          <OutlinedInput
-            type="number"
-            value={square.start}
-            onChange={(e) =>
-              setSquare({ ...square, start: +e.target.value })
-            }
-          />
-          <div>-</div>
-          <div className="line"></div>
-          <OutlinedInput
-            type="number"
-            value={square.end}
-            onChange={(e) =>
-              setSquare({ ...square, end: +e.target.value })
-            }
-          />
-        </Stack>
-      </Stack>
+     {/* Square meter */}
+<Stack className="find-your-home" mb="30px">
+  <Typography className="title-sub">Square meter</Typography>
+  <Stack direction="row" alignItems="center" spacing={1}>
+    
+    {/* Min input */}
+    <FormControl fullWidth size="small">
+      <InputLabel htmlFor="min-square">Min</InputLabel>
+      <OutlinedInput
+        id="min-square"
+        label="Min"
+        type="number"
+        value={square.start}
+        onChange={(e) => setSquare({ ...square, start: +e.target.value })}
+      />
+    </FormControl>
+
+    <div className="line">—</div>
+
+    {/* Max input */}
+    <FormControl fullWidth size="small">
+      <InputLabel htmlFor="max-square">Max</InputLabel>
+      <OutlinedInput
+        id="max-square"
+        label="Max"
+        type="number"
+        value={square.end}
+        onChange={(e) => setSquare({ ...square, end: +e.target.value })}
+      />
+    </FormControl>
+
+  </Stack>
+</Stack>
 
       {/* Price Range */}
       <Stack className="find-your-home">
@@ -161,7 +174,7 @@ const Filter = () => {
               setPrice({ ...price, start: +e.target.value })
             }
           />
-          <div>-</div>
+          <div className="line">—</div>
           <div className="line"></div>
           <OutlinedInput
             type="number"

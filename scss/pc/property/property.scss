@@ -30,6 +30,30 @@
     }
   }
 
+  .square-year-input, .price-input {
+  display: flex;
+  align-items: center;
+
+  .line {
+    color: #181a20;
+    font-weight: bold;
+    padding: 0 5px;
+  }
+
+  .MuiFormControl-root {
+    background-color: #ffffff;
+    
+    .MuiInputLabel-root {
+      color: #999; // Border ustidagi yozuv rangi
+      font-size: 13px;
+    }
+
+    .MuiOutlinedInput-root {
+      border-radius: 8px;
+    }
+  }
+}
+
 /* Rooms */ /* Bedrooms */
   .room-filter {
   border: 1px solid #e0e0e0;
