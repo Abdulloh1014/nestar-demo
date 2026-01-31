@@ -21,11 +21,15 @@ import KeyboardArrowDownRoundedIcon from "@mui/icons-material/KeyboardArrowDownR
 import PropertyCard from "../../libs/components/property/PropertyCard";
 import Filter from "@/libs/components/property/Filter";
 import withLayoutBasic from "@/libs/components/layout/LayoutBasic";
+import useDeviceDetect from "@/libs/hooks/useDeviceDetect";
 
 const PropertyList: NextPage = () => {
-	// Dummy data sifatida massiv [1, 2, 3, 4, 5, 6] ishlatilgan
+    const device = useDeviceDetect();
 	const [properties, setProperties] = useState<number[]>([1, 2, 3, 4, 5, 6]);
 
+	if (device === "mobile") {
+    return <Stack>Property List MOBILE</Stack>;
+  } else {
 	return (
 		<div id={"property-list-page"} style={{ position: "relative" }}>
 			<Stack className={"container"}>
@@ -67,6 +71,7 @@ const PropertyList: NextPage = () => {
 			</Stack>
 		</div>
 	);
+  };
 };
 
 export default withLayoutBasic(PropertyList);

@@ -9,9 +9,15 @@ import { NextPage } from "next";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
+import useDeviceDetect from "@/libs/hooks/useDeviceDetect";
 
 const Home: NextPage = () => {
-  return (
+  const device = useDeviceDetect();
+
+  if (device === "mobile") {
+    return <Stack>HOMEPAGE MOBILE</Stack>;
+  } else {
+     return (
     <Stack className={"home-page"}>
       <TrendProperties />
       <PopularProperties />
@@ -19,7 +25,9 @@ const Home: NextPage = () => {
       <TopProperties />
       <TopAgents />
     </Stack>
-  );
+    );
+  }
 };
+  
 
 export default withLayoutMain(Home);
